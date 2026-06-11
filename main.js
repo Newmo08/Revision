@@ -8,6 +8,25 @@ if (menuToggle && sidebar) {
 	});
 }
 
+// Daily health reminders
+(() => {
+	const weeklyReminders = [
+		'Have you had enough water today?',
+		'Have you gone outside and enjoyed some fresh air?',
+		'Just have a great day!',
+		'Take a break and stretch your body.',
+		'Go for a walk and give your mind a reset.',
+		'Practice gratitude and notice something good.',
+		'Eat something nutritious and keep your energy up.',
+	];
+
+	const reminderEl = document.querySelector('.reminder-random h2, .reminder-random h3');
+	if (reminderEl) {
+		const dayOfWeek = new Date().getDay();
+		reminderEl.textContent = weeklyReminders[dayOfWeek];
+	}
+})();
+
 const todoForm = document.getElementById('todo-form');
 const todoInput = document.getElementById('todo-input');
 const todoList = document.getElementById('todo-list');
@@ -379,3 +398,11 @@ setupDragAndDrop();
 		});
 	}
 })();
+
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', () => {
+		navigator.serviceWorker.register('./sw.js')
+			.then(() => console.log('Service worker registered successfully.'))
+			.catch(error => console.error('Service worker registration failed:', error));
+	});
+}

@@ -4,15 +4,14 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>PLanner - Resources</title>
+	<title>Planner - Calender</title>
 	<link rel="stylesheet" href="main.css" />
 	<link rel="manifest" href="manifest.json" />
 	<link rel="icon" href="icon.svg" type="image/svg+xml" />
 	<meta name="theme-color" content="#ffffff" />
 </head>
 <header class="topbar">
-	<img src="icon.svg" alt="Planner Logo" class="logo" />
-		</aside>
+		<img src="icon.svg" alt="Planner Logo" class="logo" />
 </header>
 <body>
 	
@@ -34,39 +33,40 @@
 				</form>
 				<ul id="todo-list" class="todo-items"></ul>
 			</nav>
-
+			
 			<nav class="menu">
 				<a href="index.html" class="menu-item">Dashboard</a>
-				<a href="calendar.html" class="menu-item">Calendar</a>
-				<a href="resources.html" class="menu-item is-active">Resources</a>
+				<a href="calendar.html" class="menu-item is-active">Calendar</a>	
+				<a href="resources.html" class="menu-item">Resources</a>
 				<a href="#" class="menu-item unavailable">Messaging</a>
 			</nav>
 
 		</aside>
 
-			<main class="content">
-				<h1>Resources</h1>
-				<nav class="info">
-					<p>
-					    Drop documents here to keep track 
-						of them. Files are saved locally in your browser.
-					</p>
-				</nav>
-				<section class="drag-drop">
-					<div class="resource-actions">
-						<button id="clear-resources">Clear saved resources</button>
+		<main class="content">
+			<h1>Calendar</h1>
+			<section class="planner">
+				<div class="planner-controls">
+					<button id="prev-day" aria-label="Previous day">‹</button>
+					<input type="date" id="planner-date" />
+					<button id="next-day" aria-label="Next day">›</button>
+				</div>
+				<div class="planner-columns">
+					<div class="planner-tasks">
+						<h2>Tasks</h2>
+						<form id="planner-task-form">
+							<input id="planner-task-input" type="text" placeholder="Add a task" autocomplete="off" />
+							<button type="submit">Add</button>
+						</form>
+						<ul id="planner-task-list" class="todo-items"></ul>
 					</div>
-					<div class="drag-drop-grid">
-						<div class="drag-column">
-							<h3>Drop files here</h3>
-							<div class="drop-zone" data-zone="math-resources">
-								<p class="drag-drop-note">Drag files from your desktop into this area.</p>
-							</div>
-						</div>
+					<div class="planner-notes">
+						<h2>Notes</h2>
+						<textarea id="planner-note" placeholder="Daily notes"></textarea>
 					</div>
-				</section>
-			</main>
-
+				</div>
+			</section>
+		</main>
 	</div>
 
 	<script src="main.js"></script>
